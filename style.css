@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.signinorup {
+	max-width: 400px;
+	border: solid 2px #ccc;
+	overflow: hidden;
+	padding: 2%;
+}
+
+.siuLeft {
+	float: left;
+	text-align: right;
+	width: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.siuRight {
+	float: left;
+	text-align: left;
+	width: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
