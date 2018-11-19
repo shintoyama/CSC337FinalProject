@@ -4,16 +4,20 @@
 <meta charset="UTF-8">
 <title>WST</title>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body>
 
 <h1>Workout Scheduler and Tracker (find a better name)</h1>
 <hr>
 <br>
+<main class="mainContent">
+
+<!-- Sign in or sign up form starts -->
 <center>
 \ Welcome to (title) /
 <div class="signinorup">
-	<form onsubmit="func1();return false">
+	<form onsubmit="signIn();return false">
 		Sign In<br>
 		<div class="siuLeft">
 			Username: <br>
@@ -25,7 +29,7 @@
 		</div>
 		<input type="submit" value="Sign In" />
 	</form><br>
-	<form onsubmit="func2();return false">
+	<form onsubmit="signUp();return false">
 		or Sign Up<br>
 		<div class="siuLeft">
 			Username: <br>
@@ -41,9 +45,119 @@
 	</form>
 </div>
 </center>
+<!-- Sign in or sign up form ends -->
+
+<br><br>
+
+<!-- Workout list starts-->
+<center>
+<div class="listOfWorkout">
+<table cellspacing="0"><tbody>
+	<tr>
+		<th colspan="5" bgcolor="#ccc">Your Workouts</th>
+	</tr>
+	<tr>
+		<td width="40%">-</td>
+		<td width="20%">duration per set</td>
+		<td width="20%">hardness</td>
+		<td width="15%">place</td>
+		<td width="5%">delete</td>
+	</tr>
+	<tr>
+		<td>e.g. Arm Stretch</td>
+		<td>30</td>
+		<td>Very Light</td>
+		<td>Home</td>
+		<td><i class="fas fa-trash-alt" onclick="deletewo()"></i></td>
+	</tr>
+</tbody></table>
+<br>
+<form onsubmit="addWorkout();return false">
+	<table cellspacing="0"><tbody>
+		<tr>
+			<td width="40%"><input type="text" id="" placeholder="workout name" size="40%" required /></td>
+			<td width="20%"><input type="number" id="" placeholder="time in sec" step="10" min="10" max="360" required /> in sec</td>
+			<td width="20%">
+				<select id="" required>
+					<option value="">(Select)</option>
+					<option value="VL">Very Light</option>
+					<option value="LL">Light</option>
+					<option value="MM">Moderate</option>
+					<option value="HH">Hard</option>
+					<option value="VH">Very Hard</option>
+				</select>
+			</td>
+			<td width="15%"><input type="text" id="" placeholder="place" /></td>
+			<td width="5%"><input type="submit" id="" value="Add" /></td>
+		</tr>
+	</tbody></table>
+</form>
+(suggest some)
+</div>
+</center>
+<!-- Workout list ends -->
+
+<br><br>
+
+<!-- Workout menu generator starts -->
+<center>
+<div class="woGen">
+	<form onsubmit="menuGen();return false">
+		Duration? <input type="number" id="" placeholder="time in min" step="5" min="5" max="180" required /> in min<br>
+		Place? <input type="type" id="" placeholder="not required" /><br>
+		Hardness? <select id="" required>
+					<option value="">(Select)</option>
+					<option value="VL">Very Light</option>
+					<option value="LL">Light</option>
+					<option value="MM">Moderate</option>
+					<option value="HH">Hard</option>
+					<option value="VH">Very Hard</option>
+				</select><br>
+		Rest between workouts? <input type="number" id="" placeholder="rest in sec" step="5" min="5" max="180" required /> in sec<br>
+				<input type="submit" id="" value="Generate a menu" />
+	</form>
+<br>
+	(start stop button, display time)
+</div>
+</center>
+
+
+<!-- Workout menu generator ends -->
+
+<!-- Workout tracker starts -->
+<center>
+<div class="woTr">
+	<table cellspacing="0"><tbody>
+		<tr>
+			<th colspan="5">Your Workout History</th>
+		</tr>
+		<tr>
+			<td>Date</td>
+			<td>Duration</td>
+			<td>Hardness</td>
+			<td>Place</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>e.g. 11-20-2018</td>
+			<td>30 min</td>
+			<td>Very Hard</td>
+			<td>Home</td>
+			<td><input type="button" onclick="detailShow()" value="Detail" /></td>
+		</tr>
+	</tbody></table>
+</div>
+</center>
+<!-- Workout tracker ends -->
+
 
 <script type="text/javascript">
+	function deletewo() {
+		alert();
+	}
 </script>
+
+</main>
 
 </body>
 </html>

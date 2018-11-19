@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.mainContent {
+	width: 100%;
+}
+
 .signinorup {
 	max-width: 400px;
 	border: solid 2px #ccc;
@@ -20,4 +24,30 @@
 	width: 50%;
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.listOfWorkout table {
+	width: 80%;
+	border: solid 1px #888;
+	text-align: center;
+}
+.listOfWorkout th, td {
+	border: solid 1px #888;
+	margin: 0;
+}
+.fa-trash-alt {
+	transition: 0.3s;
+}
+.fa-trash-alt:hover {
+	color: #ccc;
+}
+
+.woGen {
+	float: left;
+	width: 65%;
+}
+
+.woTr {
+	float: left;
+	width: 35%;
 }
