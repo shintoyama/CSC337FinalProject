@@ -8,60 +8,63 @@
 </head>
 <body>
 
-<h1>Workout Scheduler and Tracker (find a better name)</h1>
-<hr>
+<!-- header starts -->
+<div class="header">
+	<h1> <span style="color: #FF4460;"><i class="fas fa-dumbbell"></i></span> Workout Scheduler and Tracker</h1>
+	<div id="sibut" onclick="siform()">
+		Sign In
+	</div>
+	<div id="siform" style="display: none;">
+		<form onsubmit="signIn();return false">
+			<div class="siuLeft">
+				Username: <br>
+				Password: <br>
+			</div>
+			<div class="siuRight">
+				<input type="text" id="" required /><br>
+				<input type="text" id="" required /><br>
+			</div>
+			<input type="submit" value="Sign In" />
+		</form>
+	</div>
+	<div id="subut" onclick="suform()">
+		Sign Up
+	</div>
+	<div id="suform" style="display: none;">
+		<form onsubmit="signUp();return false">
+			<div class="siuLeft">
+				Username: <br>
+				Password: <br>
+			</div>
+			<div class="siuRight">
+				<input type="text" id="" required /><br>
+				<input type="text" id="" required /><br>
+			</div>
+			<input type="submit" value="Sign Up" />
+		</form>
+	</div>
+	<div id="usernamedisplay" style="display: none">Hello, <span id="showusername" style="color: #FF4460;"></span></div>
+</div>
+<!-- header ends -->
+
 <br>
 <main class="mainContent">
-
-<!-- Sign in or sign up form starts -->
-<center>
-\ Welcome to (title) /
-<div class="signinorup">
-	<form onsubmit="signIn();return false">
-		Sign In<br>
-		<div class="siuLeft">
-			Username: <br>
-			Password: <br>
-		</div>
-		<div class="siuRight">
-			<input type="text" id="" required /><br>
-			<input type="text" id="" required /><br>
-		</div>
-		<input type="submit" value="Sign In" />
-	</form><br>
-	<form onsubmit="signUp();return false">
-		or Sign Up<br>
-		<div class="siuLeft">
-			Username: <br>
-			Password: <br>
-			Confirmation: <br>
-		</div>
-		<div class="siuRight">
-			<input type="text" id="" required /><br>
-			<input type="text" id="" required /><br>
-			<input type="text" id="" required /><br>
-		</div>
-		<input type="submit" value="Sign Up" />
-	</form>
-</div>
-</center>
-<!-- Sign in or sign up form ends -->
 
 <br><br>
 
 <!-- Workout list starts-->
 <center>
 <div class="listOfWorkout">
-<table cellspacing="0"><tbody>
+<table cellspacing="0" width="100%"><tbody>
 	<tr>
-		<th colspan="5" bgcolor="#ccc">Your Workouts</th>
+		<th colspan="5" bgcolor="#000">Your Workouts</th>
 	</tr>
 	<tr>
-		<td width="40%">-</td>
-		<td width="20%">duration per set</td>
+		<td width="35%">name</td>
+		<td width="20%">duration per set (s)</td>
 		<td width="20%">hardness</td>
 		<td width="15%">place</td>
-		<td width="5%">delete</td>
+		<td width="10%">delete</td>
 	</tr>
 	<tr>
 		<td>e.g. Arm Stretch</td>
@@ -73,9 +76,9 @@
 </tbody></table>
 <br>
 <form onsubmit="addWorkout();return false">
-	<table cellspacing="0"><tbody>
+	<table cellspacing="0" width="100%"><tbody>
 		<tr>
-			<td width="40%"><input type="text" id="" placeholder="workout name" size="40%" required /></td>
+			<td width="35%"><input type="text" id="" placeholder="workout name" required /></td>
 			<td width="20%"><input type="number" id="" placeholder="time in sec" step="10" min="10" max="360" required /> in sec</td>
 			<td width="20%">
 				<select id="" required>
@@ -87,21 +90,24 @@
 					<option value="VH">Very Hard</option>
 				</select>
 			</td>
-			<td width="15%"><input type="text" id="" placeholder="place" /></td>
-			<td width="5%"><input type="submit" id="" value="Add" /></td>
+			<td width="15%"><input type="text" id="" placeholder="place" size="10%" /></td>
+			<td width="10%"><input type="submit" id="" class="nbutton" value="Add"/></td>
 		</tr>
 	</tbody></table>
 </form>
-(suggest some)
 </div>
 </center>
 <!-- Workout list ends -->
 
 <br><br>
 
+<center>
+<div class="bottomwrapper">
 <!-- Workout menu generator starts -->
 <center>
 <div class="woGen">
+	<center style="font-size: 1.2em;">\ Start Workout /</center>
+	<hr>
 	<form onsubmit="menuGen();return false">
 		Duration? <input type="number" id="" placeholder="time in min" step="5" min="5" max="180" required /> in min<br>
 		Place? <input type="type" id="" placeholder="not required" /><br>
@@ -113,8 +119,8 @@
 					<option value="HH">Hard</option>
 					<option value="VH">Very Hard</option>
 				</select><br>
-		Rest between workouts? <input type="number" id="" placeholder="rest in sec" step="5" min="5" max="180" required /> in sec<br>
-				<input type="submit" id="" value="Generate a menu" />
+		Rest between workouts? <input type="number" id="" placeholder="rest in sec" step="5" min="5" max="180" required /> in sec<br><br>
+				<center><input style="font-size: 1.1em;" type="submit" id="" value="Generate a menu" class="nbutton" /></center>
 	</form>
 <br>
 	(start stop button, display time)
@@ -129,7 +135,7 @@
 <div class="woTr">
 	<table cellspacing="0"><tbody>
 		<tr>
-			<th colspan="5">Your Workout History</th>
+			<th colspan="5" bgcolor="#ccc">Your Workout History</th>
 		</tr>
 		<tr>
 			<td>Date</td>
@@ -143,17 +149,37 @@
 			<td>30 min</td>
 			<td>Very Hard</td>
 			<td>Home</td>
-			<td><input type="button" onclick="detailShow()" value="Detail" /></td>
+			<td><input type="button" onclick="detailShow()" value="Detail" class="nbutton" /></td>
 		</tr>
 	</tbody></table>
 </div>
 </center>
 <!-- Workout tracker ends -->
+</div>
+</center>
+
+<!-- footer starts -->
+<footer>
+	©︎2018 Workout Scheduler and Tracker
+</footer>
+<!-- footer ends -->
 
 
 <script type="text/javascript">
 	function deletewo() {
-		alert();
+	var signinbutton = document.getElementById('sibut');
+	var signupbutton = document.getElementById('subut');
+	var signinform = document.getElementById('siform');
+	var signupform = document.getElementById('suform');
+	function siform() {
+		signinform.style.display = "inline";
+		signinbutton.style.display = "none";
+		signupbutton.style.display = "none";
+	}
+	function suform() {
+		signupform.style.display = "inline";
+		signinbutton.style.display = "none";
+		signupbutton.style.display = "none";
 	}
 </script>
 
