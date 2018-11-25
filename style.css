@@ -1,3 +1,7 @@
+/* CSC337 Final Project
+Ben Lazarines
+Shin Toyama
+12/05/2018 */
 @charset "UTF-8";
 
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black');
@@ -9,6 +13,70 @@ body {
 
 .mainContent {
 	width: 100%;
+	overflow: hidden;
+}
+
+input {
+	border-radius: 2px;
+	font-family: 'Archivo Black', sans-serif;
+}
+
+/* header design */
+.header {
+	position: relative;
+	background-color: #000;
+	color: #fff;
+	padding: 5px 20px;
+	margin: 0;
+}
+
+#sibut {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	right: 120px;
+	transform: translate(3%, -50%);
+	text-align: center;
+	border: solid 2px #FF4460;
+	border-radius: 30px;
+	padding: 8px;
+	transition: .3s;
+}
+#sibut:hover {
+	background-color: #C2A8AC;
+}
+#siform {
+	line-height: 1.2;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	right: 40px;
+	transform: translate(3%, -50%);
+	padding-right: 0;
+}
+
+#subut {
+	display: inline-block;
+	top: 50%;
+	right: 20px;
+	transform: translate(3%, -50%);
+	text-align: center;
+	border: solid 2px #FF4460;
+	border-radius: 30px;
+	padding: 8px;
+	transition: .3s;
+}
+#subut:hover {
+	background-color: #C2A8AC;
+}
+#suform {
+	line-height: 1.2;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	right: 40px;
+	transform: translate(3%, -50%);
+	padding-right: 0;
 }
 
 .signinorup {
