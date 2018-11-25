@@ -171,7 +171,7 @@ Shin Toyama
 
 
 <script type="text/javascript">
-	function showWOList { //read database and show the list of saved workouts
+	function showWOList() { //read database and show the list of saved workouts
 		var ajax = new XMLHttpRequest();
 		ajax.open("GET", "controller.php?WOList=", true);
 		ajax.send();
@@ -182,7 +182,7 @@ Shin Toyama
 	        }
 	    };
 	}
-	function showWOHistory { //read database and show the history
+	function showWOHistory() { //read database and show the history
 		var ajax = new XMLHttpRequest();
 		ajax.open("GET", "controller.php?WOHistory=", true);
 		ajax.send();

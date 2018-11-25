@@ -57,6 +57,7 @@ input {
 
 #subut {
 	display: inline-block;
+	position: absolute;
 	top: 50%;
 	right: 20px;
 	transform: translate(3%, -50%);
