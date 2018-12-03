@@ -62,15 +62,15 @@ session_start();
 <div class="sidemenu">
 	<center><h2>MENU</h2></center>
 	<ul>
-		<li><a onclick="Changeiframe('leaderboard.php')">Home</a></li>
-		<li><a onclick="Changeiframe('WOgen.php')">Workout Menu Generator</a></li>
-		<li><a onclick="Changeiframe('WOlist.php')">Workout List</a></li>
+		<li><a onclick="Changeiframe('sgst.php')">Home</a></li>
+		<li><a onclick="Changeiframe('leaderboard.php')">Leaderboard</a></li>
+		<li><a onclick="Changeiframe('logpage.php')">Log workout</a></li>
 		<li><a onclick="Changeiframe('myaccount.php')">My Account</a></li>
 	</ul>
 </div>
 
 <div class="mainContent">
-	<iframe id="mainWrap"src="myaccount.php">
+	<iframe id="mainWrap"src="sgst.php">
 	</iframe>
 </div>
 
