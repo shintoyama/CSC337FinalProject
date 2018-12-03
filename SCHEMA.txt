@@ -1,0 +1,56 @@
+cs373 final project database queries.
+
+
+schema layout
+	1. user table
+	2. workout table
+		cardio vs weights?
+	3. workout log
+		cardio duration
+		weights rep/set/weight
+	4. scoreboard (join table generated in code)
+		cardio/duration, weights score
+
+1. Create database
+	CEATE DATABASE css337Project;
+	USE css337;
+
+1. Create user table
+	CREATE TABLE users (user_id int (11) NOT NULL AUTO_INCREMENT,
+		username VARCHAR (16) NOT NULL,
+		password VARCHAR (255) NOT NULL,
+		useremail VARCHAR (30) NOT NULL,
+		score int(11) NOT NULL,
+		PRIMARY KEY (user_id));
+
+2. Create cardio table
+	CREATE TABLE cardio (cardio_id int(11) NOT NULL AUTO_INCREMENT,
+		workout_name VARCHAR (20) NOT NULL,
+		workout_duration_minutes int(3) NOT NULL,
+		workout_points int(2) NOT NULL,
+		equipment_required VARCHAR (5) NOT NULL,
+		PRIMARY KEY (cardio_id));
+
+3. Create lifting table
+	CREATE TABLE lifting (lifting_id int(11) NOT NULL AUTO_INCREMENT,
+		workout_name VARCHAR (20) NOT NULL,
+		workout_muscle_group VARCHAR(50) NOT NULL,
+		workout_reps int (2) NOT NULL,
+		workout_points int(2) NOT NULL,
+		equipment_required VARCHAR (5) NOT NULL,
+		PRIMARY KEY (lifting_id));
+
+4. Create cardio_log table
+	CREATE TABLE cardio_log (user_id int (11) NOT NULL,
+		cardio_id int (11) NOT NULL,
+		workout_count int (2) NOT NULL,
+		FOREIGN KEY (user_id) REFERENCES users(user_id),
+		FOREIGN KEY (cardio_id) REFERENCES cardio(cardio_id));
+
+5. Create lifting_log table
+	CREATE TABLE lifting_log (user_id int (11) NOT NULL,
+		lifting_id int (11) NOT NULL,
+		weight int (4) NOT NULL,
+		sets int (2) NOT NULL,
+		FOREIGN KEY (user_id) REFERENCES users(user_id),
+		FOREIGN KEY (lifting_id) REFERENCES cardio(lifting_id));
