@@ -11,7 +11,12 @@ session_start();
 </head>
 <body>
 
-users and scores
+<table><tbody>
+	<tr>
+		<th>User</th>
+		<th>Score</th>
+	</tr>
+</tbody></table>
 
 </body>
 </html>

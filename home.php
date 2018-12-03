@@ -84,6 +84,95 @@ function Changeiframe(url) {
 	var element = document.getElementById('mainWrap');
 	element.src = url;
 }
+function showWOList() { //read database and show the list of saved workouts
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?WOList=", true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+	        	var WOListArray = JSON.parse(ajax.responseText);
+	            //code to show the list
+	        }
+	    };
+	}
+	function showWOHistory() { //read database and show the history
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?WOHistory=", true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+	        	var WOHistoryArray = JSON.parse(ajax.responseText);
+	            //code to show the history
+	        }
+	    };
+	}
+
+	function showData() { //when the page is loaded
+		showWOList();
+		showWOHistory();
+	}
+
+	var signinbutton = document.getElementById('sibut');
+	var signupbutton = document.getElementById('subut');
+	var signinform = document.getElementById('siform');
+	var signupform = document.getElementById('suform');
+	var showMeAfterLogin = document.getElementById('usernamedisplay');
+	var showUsername = document.getElementById('showusername');
+	function siform() { //show sign-in form
+		signinform.style.display = "inline";
+		signinbutton.style.display = "none";
+		signupbutton.style.display = "none";
+	}
+	function suform() { //show sign-up form
+		signupform.style.display = "inline";
+		signinbutton.style.display = "none";
+		signupbutton.style.display = "none";
+	}
+	function signIn() { //check if the user is in database. if yes, let him log in
+		var signInUNInput = document.getElementById('signinUNinput');
+		var signInPWInput = document.getElementById('signinPWinput');
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?signInUN=" + signInUNInput.value + "&signInPW=" + signInPWInput.value, true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+	        	if (ajax.responseText) { //if the user is in database
+	        		signinform.style.display = "none";
+					var uname = signInUNInput.value; //get the input username
+					showUsername.innerHTML = uname;
+					showMeAfterLogin.style.display = "inline";
+	        	}
+	        	else {
+	        		signInUNInput.value = '';
+	        		signInPWInput.value = '';
+	        		alert('Please enter a valid username or password.');
+	        	}
+	        }
+	    };
+	}
+	function signUp() { //save the username and password into database, and let him log in 
+		var signUpUNInput = document.getElementById('signupUNinput');
+		var signUpPWInput = document.getElementById('signupPWinput');
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?signUpUN=" + signUpUNInput.value + "&signUpPW=" + signUpPWInput.value, true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+	        	if (ajax.responseText) { //if the input username is unused
+	        		signupform.style.display = "none";
+					var uname = signUpUNInput.value; //get the input username
+					showUsername.innerHTML = uname;
+					showMeAfterLogin.style.display = "inline";
+	        	}
+	        	else { //if the input username is already used
+	        		signUpUNInput.value = '';
+	        		signUpPWInput.value = '';
+	        		alert('Please use another username');
+	        	}
+	        }
+	    };
+	}
+
 </script>
 
 </body>
