@@ -8,7 +8,7 @@ class DataBaseAdaptor {
     private $DB;
 
     public function __construct() {
-        $dataBase = 'mysql:dbname=css337FinalProject; charset=utf8; host=127.0.0.1';
+        $dataBase = 'mysql:dbname=css337Project; charset=utf8; host=127.0.0.1';
         $user = 'root';
         $password = 'texes101';
     try {
@@ -23,18 +23,19 @@ class DataBaseAdaptor {
     public function checkUser($user)
   {
       $stmt = $this->DB->prepare ( "SELECT username, password FROM users where username regexp :userName;" );
-      $stmt->bindParam ('userName', $user)
-      $stmt->execute ();
+      $stmt->bindParam ('userName', $user);
+      $stmt->execute();
       return $stmt->fetchAll ( PDO::FETCH_ASSOC );
   }
 
   public function submitUser($user, $pass)
 {
     $hash = password_hash($pass, PASSWORD_DEFAULT);
+    $score = 0;
     $stmt = $this->DB->prepare ( "INSERT into users (username, password, score) VALUES (:userName, :password, :score);" );
     $stmt->bindParam ('userName', $user);
     $stmt->bindParam ('password', $hash);
-    $stmt->bindParam ('score', 0);
+    $stmt->bindParam ('score', $score);
     $stmt->execute ();
     return "Account successfully added";
 }
