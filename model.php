@@ -66,10 +66,19 @@ class DataBaseAdaptor {
 
   public function logCardio($user, $workout, $sets){
     if ($workout == 1) $workout = "Run";
-    $stmt = $this->DB->prepare ( "INSERT into cardio_log (username, cardio_name, workout_count) VALUES (:user, :cardio, :count);" );
+    else if ($workout == 8) $workout = "Swim";
+    else if ($workout == 9) $workout = "Bike";
+    else $workout = "Row";
+
+    $duration = 20;
+    $score = 10 * $sets;
+
+    $stmt = $this->DB->prepare ( "INSERT into cardio_log (username, cardio_name, workout_count, duration, score) VALUES (:user, :cardio, :count, :duration, :score);" );
     $stmt->bindParam ('user', $user);
     $stmt->bindParam ('cardio', $workout);
     $stmt->bindParam ('count', $sets);
+    $stmt->bindParam ('duration', $duration);
+    $stmt->bindParam ('score', $score);
     $stmt->execute ();
   }
 
@@ -79,18 +88,27 @@ class DataBaseAdaptor {
     else if ($workout == 3) $workout = "Push Ups";
     else if ($workout == 4) $workout = "Shoulder Press";
     else if ($workout == 5) $workout = "Crunches";
+    else if ($workout == 6) $workout = "Curls";
+    else if ($workout == 7) $workout = "Pull Ups";
+
+
 
     if ($workout == "Bench Press" || $workout == "Push Ups") $muscle = "Chest";
     else if ($workout == "Shoulder Press") $muscle = "Shoulders";
     else if ($workout == "Curls" || $workout == "Pull Ups") $muscle = "Arms";
     else $muscle = "Core";
 
-    $stmt = $this->DB->prepare ( "INSERT into lifting_log (username, lifting_name, muscle_group, weight, sets) VALUES (:user, :lift, :muscle, :weight, :count);" );
+    $reps = 10;
+    $score = 5 * $sets;
+
+    $stmt = $this->DB->prepare ( "INSERT into lifting_log (username, lifting_name, muscle_group, reps, weight, sets, score) VALUES (:user, :lift, :muscle, :reps, :weight, :count, :score);" );
     $stmt->bindParam ('user', $user);
     $stmt->bindParam ('lift', $workout);
     $stmt->bindParam ('muscle', $muscle);
+    $stmt->bindParam ('reps', $reps);
     $stmt->bindParam ('weight', $weight);
     $stmt->bindParam ('count', $sets);
+    $stmt->bindParam ('score', $score);
     $stmt->execute ();
   }
 
