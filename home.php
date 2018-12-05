@@ -1,4 +1,4 @@
-<!-- 
+<!--
 CSC337 Final Project,
 Ben Lazarines
 Shin Toyama
@@ -83,9 +83,73 @@ session_start();
 </div>
 
 <script type="text/javascript">
+<<<<<<< HEAD
 	function Changeiframe(url) {
 		var element = document.getElementById('mainWrap');
 		element.src = url;
+||||||| merged common ancestors
+function Changeiframe(url) {
+	var element = document.getElementById('mainWrap');
+	element.src = url;
+}
+function showWOList() { //read database and show the list of saved workouts
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?WOList=", true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+	        	var WOListArray = JSON.parse(ajax.responseText);
+	            //code to show the list
+	        }
+	    };
+	}
+	function showWOHistory() { //read database and show the history
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?WOHistory=", true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+	        	var WOHistoryArray = JSON.parse(ajax.responseText);
+	            //code to show the history
+	        }
+	    };
+	}
+
+	function showData() { //when the page is loaded
+		showWOList();
+		showWOHistory();
+=======
+function Changeiframe(url) {
+	var element = document.getElementById('mainWrap');
+	element.src = url;
+}
+function showWOList() { //read database and show the list of saved workouts
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?WOList=", true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+	        	var WOListArray = JSON.parse(ajax.responseText);
+	            //code to show the list
+	        }
+	    };
+	}
+	function showWOHistory() { //read database and show the history
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?WOHistory=", true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+	        	var WOHistoryArray = JSON.parse(ajax.responseText);
+	            //code to show the history
+	        }
+	    }
+	}
+
+	function showData() { //when the page is loaded
+		showWOList();
+		showWOHistory();
+>>>>>>> 702295b26d12b25fc3737ddca33bdbf448bdbfcf
 	}
 	var screen = document.getElementById('mainWrap');
 	var beforeSI = document.getElementById('beforesi');
@@ -113,7 +177,11 @@ session_start();
 		ajax.send();
 		ajax.onreadystatechange = function () {
 	        if (ajax.readyState == 4 && ajax.status == 200) {
-	        	if (ajax.responseText) { //if the user is in database
+					//	showUsername.innerHTML = ajax.responseText;
+					//	showMeAfterLogin.style.display = "inline";
+
+		//				alert(ajax.responseText);
+						if (ajax.responseText == "Success") { //if the user is in database
 	        		signinform.style.display = "none";
 					var uname = signInUNInput.value; //get the input username
 					showUsername.innerHTML = uname;
@@ -129,7 +197,7 @@ session_start();
 	        }
 	    };
 	}
-	function signUp() { //save the username and password into database, and let him log in 
+	function signUp() { //save the username and password into database, and let him log in
 		var signUpUNInput = document.getElementById('signupUNinput');
 		var signUpPWInput = document.getElementById('signupPWinput');
 		var ajax = new XMLHttpRequest();
@@ -137,7 +205,10 @@ session_start();
 		ajax.send();
 		ajax.onreadystatechange = function () {
 	        if (ajax.readyState == 4 && ajax.status == 200) {
-	        	if (ajax.responseText) { //if the input username is unused
+					//		showUsername.innerHTML = ajax.responseText;
+					//		showMeAfterLogin.style.display = "inline";
+
+						if (ajax.responseText == "success") { //if the input username is unused
 	        		signupform.style.display = "none";
 					var uname = signUpUNInput.value; //get the input username
 					showUsername.innerHTML = uname;
@@ -151,7 +222,7 @@ session_start();
 	        		alert('Please use another username');
 	        	}
 	        }
-	    };
+	    }
 	}
 
 </script>
