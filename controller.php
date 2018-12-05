@@ -6,7 +6,7 @@
 
 include "model.php";
 $theDBA = new DataBaseAdaptor ();
-$currentUser = "";
+//$currentUser = "";
 
 if (isset($_GET['WOList'])) {
 
@@ -16,21 +16,22 @@ if (isset($_GET['WOHistory'])) {
 }
 
 if (isset($_GET['quickWO'])) {
-	if ($currentUser == ""){
-		echo($currentUser . "You must be logged in to perform this action");
+	if(!isset($_COOKIE["username"])) {
+		echo("You must be logged in to perform this action");
 	}
 	else{
+		$user = $_COOKIE["username"];
 		$workout = $_GET['quickWO'];
 		$sets = $_GET['sets'];
 	// FIGURE OUT HOW TO PULL USER_ID
 		if ($workout == 1){
-			$theDBA->logCardio($currentUser, $workout, $sets);
+			$theDBA->logCardio($user, $workout, $sets);
 			echo("success");
 		}
 	// ADD WEIGHTS FOR LIFT
 		else {
 			$weight = $_GET['weight'];
-			$theDBA->logLift($currentUser, $workout, $weight, $sets);
+			$theDBA->logLift($user, $workout, $weight, $sets);
 		}
 	}
 
@@ -40,7 +41,8 @@ if (isset($_GET['signInUN']) && isset($_GET['signInPW'])) {
 	$user = $_GET['signInUN'];
 	$pass = $_GET['signInPW'];
   $arr = $theDBA->signIn ( $user, $pass );
-	$currentUser = $user;
+	setcookie("username", $user);
+//	$currentUser = $user;
 	echo($arr);
 
 }

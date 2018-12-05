@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <?php
 session_start();
+
 ?>
 </head>
 <body>
@@ -85,6 +86,8 @@ session_start();
 </center>
 
 <script type="text/javascript">
+
+
 	function quicklog(n) {
 		var idnew = 'qWOset' + n;
 		var nofsets = document.getElementById(idnew);
