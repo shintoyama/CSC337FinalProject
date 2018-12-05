@@ -39,7 +39,7 @@ session_start();
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog(2);return false">
+	<form onsubmit="quicklogweight(2);return false">
 		<td>Benchpress</td>
 		<td>10 reps</td>
 		<td>3</td>
@@ -49,7 +49,7 @@ session_start();
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog(3);return false">
+	<form onsubmit="quicklogweight(3);return false">
 		<td>Push Up</td>
 		<td>10 reps</td>
 		<td>3</td>
@@ -59,7 +59,7 @@ session_start();
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog(4);return false">
+	<form onsubmit="quicklogweight(4);return false">
 		<td>shoulders</td>
 		<td>10 reps</td>
 		<td>2</td>
@@ -69,7 +69,7 @@ session_start();
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog(5);return false">
+	<form onsubmit="quicklogweight(5);return false">
 		<td>Abs</td>
 		<td>10 reps</td>
 		<td>1</td>
@@ -84,13 +84,33 @@ session_start();
 </center>
 
 <script type="text/javascript">
-	function quicklog(n, type) {
+	function quicklog(n) {
 		var idnew = 'qWOset' + n;
 		var nofsets = document.getElementById(idnew);
 		var ajax = new XMLHttpRequest();
 		ajax.open("GET", "controller.php?quickWO=" + n + "&sets=" + nofsets.value, true);
 		ajax.send();
-		alert('Workout Logged Successfully!');
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+							alert(ajax.responseText);
+	        }
+	    }
+
+		nofsets.value = '';
+	}
+	function quicklogweight(n) {
+		var idnew = 'qWOset' + n;
+		var idWeight = 'qWOweight' + n;
+		var nofsets = document.getElementById(idnew);
+		var weight = document.getElementById(idWeight);
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?quickWO=" + n + "&sets=" + nofsets.value + "&weight=" + weight.value, true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+							alert(ajax.responseText);
+	        }
+	    }
 		nofsets.value = '';
 	}
 </script>
