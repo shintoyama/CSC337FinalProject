@@ -24,7 +24,7 @@ if (isset($_GET['quickWO'])) {
 		$workout = $_GET['quickWO'];
 		$sets = $_GET['sets'];
 	// FIGURE OUT HOW TO PULL USER_ID
-		if ($workout == 1){
+		if ($workout == 1 || $workout > 7){
 			$theDBA->logCardio($user, $workout, $sets);
 			echo("success");
 		}
@@ -35,6 +35,10 @@ if (isset($_GET['quickWO'])) {
 			echo "success";
 		}
 	}
+
+}
+
+if (isset($_GET[''])) {
 
 }
 
@@ -66,8 +70,6 @@ if (isset($_GET['signUpUN']) && isset($_GET['signUpPW'])) {
 
 
 }
-if (isset($_GET[''])) {
 
-}
 
 ?>
