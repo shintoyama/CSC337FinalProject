@@ -94,7 +94,6 @@ session_start();
 	var signupform = document.getElementById('suform');
 	var showMeAfterLogin = document.getElementById('usernamedisplay');
 	var showUsername = document.getElementById('showusername');
-<<<<<<< HEAD
 
 		function showWOHistory() { //read database and show the history
 			var ajax = new XMLHttpRequest();
@@ -113,8 +112,6 @@ session_start();
 			showWOHistory();
 		}
 
-=======
->>>>>>> 6540e294606f5b111b0267d40216caae8021a422
 	function siform() { //show sign-in form
 		signinform.style.display = "inline";
 		signinbutton.style.display = "none";
