@@ -98,8 +98,8 @@ session_start();
 							alert(ajax.responseText);
 	        }
 	    }
-
 		nofsets.value = '';
+		weight.value = '';
 	}
 </script>
 
