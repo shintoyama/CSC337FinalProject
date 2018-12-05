@@ -23,30 +23,43 @@ session_start();
 	<tr>
 		<th width="35%">Name</th>
 		<th width="20%">Duration (min)</th>
-		<th width="25%">Equipment</th>
 		<th width="12%">Sets</th>
 		<th width="8%">Log</th>
 	</tr>
 	<tr>
+	<form onsubmit="addWorkoutC(1);return false">
 		<td>Run</td>
-		<td>30</td>
-		<td><input type="text" id="WOCequip" placeholder="equipment"/></td>
-		<td>2</td>
-		<td ><input type="submit" class="nbutton" value="Log"/></td>
+		<td>20 min</td>
+		<td><input type="number" id="WOCsets1" placeholder="sets" min="1" max="100" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="addWorkoutC(8);return false">
+		<td>Swim</td>
+		<td>20 min</td>
+		<td><input type="number" id="WOCsets8" placeholder="sets" min="1" max="100" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="addWorkoutC(9);return false">
+		<td>Bike</td>
+		<td>20 min</td>
+		<td><input type="number" id="WOCsets9" placeholder="sets" min="1" max="100" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="addWorkoutC(10);return false">
+		<td>Row</td>
+		<td>20 min</td>
+		<td><input type="number" id="WOCsets10" placeholder="sets" min="1" max="100" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
 	</tr>
 </tbody></table>
 <br>
-<form onsubmit="addWorkout();return false">
-	<table cellspacing="0" width="100%"><tbody>
-		<tr>
-			<td width="35%"><input type="text" id="WOCname" placeholder="workout name" required /></td>
-			<td width="20%"><input type="number" id="WOCtime" placeholder="time in min" step="15" min="5" max="360" required /></td>
-			<td width="25%"><input type="text" id="WOCequip" placeholder="equipment"/></td>
-			<td width="12%"><input type="number" id="WOCsets" placeholder="sets" size="10%" min="1" max="100" required /></td>
-			<td width="8%"><input type="submit" class="nbutton" value="Log"/></td>
-		</tr>
-	</tbody></table>
-</form>
 </div>
 </center>
 <br><br>
@@ -65,6 +78,18 @@ session_start();
 		workoutTime.value = '';
 		workoutEquip.value = '';
 		workoutSets.value = '';
+	}
+	function addWorkoutC(n) {
+		var idSets = 'WOCsets' + n;
+		var nofsets = document.getElementById(idSets);
+		ajax.open("GET", "controller.php?WOClog=" + n + "&sets=" + nofsets.value, true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+							alert(ajax.responseText);
+	        }
+	    }
+		nofsets.value = '';
 	}
 </script>
 

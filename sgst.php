@@ -43,7 +43,7 @@ session_start();
 	<form onsubmit="quicklogweight(2);return false">
 		<td>Benchpress</td>
 		<td>10 reps</td>
-		<td>3</td>
+		<td>5</td>
 		<td><input type="number" id="qWOset2" placeholder="sets" min="1" max="100" required /></td>
 		<td><input type="number" id="qWOweight2" placeholder="weight" min="1" max="1000000" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
@@ -53,7 +53,7 @@ session_start();
 	<form onsubmit="quicklogweight(3);return false">
 		<td>Push Up</td>
 		<td>10 reps</td>
-		<td>3</td>
+		<td>5</td>
 		<td><input type="number" id="qWOset3" placeholder="sets" min="1" max="100" required /></td>
 		<td><input type="number" id="qWOweight3" placeholder="weight" min="1" max="1000000" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
@@ -61,9 +61,9 @@ session_start();
 	</tr>
 	<tr>
 	<form onsubmit="quicklogweight(4);return false">
-		<td>shoulders</td>
+		<td>Shoulder Press</td>
 		<td>10 reps</td>
-		<td>2</td>
+		<td>5</td>
 		<td><input type="number" id="qWOset4" placeholder="sets" min="1" max="100" required /></td>
 		<td><input type="number" id="qWOweight4" placeholder="weight" min="1" max="1000000" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
@@ -71,9 +71,9 @@ session_start();
 	</tr>
 	<tr>
 	<form onsubmit="quicklogweight(5);return false">
-		<td>Abs</td>
+		<td>Crunch</td>
 		<td>10 reps</td>
-		<td>1</td>
+		<td>5</td>
 		<td><input type="number" id="qWOset5" placeholder="sets" min="1" max="100" required /></td>
 		<td><input type="number" id="qWOweight5" placeholder="weight" min="1" max="1000000" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
