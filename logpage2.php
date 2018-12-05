@@ -86,21 +86,22 @@ session_start();
 </center>
 
 <script type="text/javascript">
-	function addWorkoutL(n) {
-		var idSets = 'WOLsets' + n;
-		var idWeight = 'WOLweight' + n;
-		var nofsets = document.getElementById(idSets);
-		var weight = document.getElementById(idWeight);
-		ajax.open("GET", "controller.php?WOLlog=" + n + "&sets=" + nofsets.value + "&weight=" + weight.value, true);
-		ajax.send();
-		ajax.onreadystatechange = function () {
-	        if (ajax.readyState == 4 && ajax.status == 200) {
-							alert(ajax.responseText);
-	        }
-	    }
-		nofsets.value = '';
-		weight.value = '';
-	}
+function addWorkoutL(n) {
+	var idnew = 'WOLsets' + n;
+	var idWeight = 'WOLweight' + n;
+	var nofsets = document.getElementById(idnew);
+	var weight = document.getElementById(idWeight);
+	var ajax = new XMLHttpRequest();
+	ajax.open("GET", "controller.php?quickWO=" + n + "&sets=" + nofsets.value + "&weight=" + weight.value, true);
+	ajax.send();
+	ajax.onreadystatechange = function () {
+				if (ajax.readyState == 4 && ajax.status == 200) {
+						alert(ajax.responseText);
+				}
+		}
+	nofsets.value = '';
+	weight.value = '';
+}
 </script>
 
 </body>
