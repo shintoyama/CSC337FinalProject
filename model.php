@@ -66,6 +66,12 @@ class DataBaseAdaptor {
 
   public function getLB(){
 
+    $stmt = $this->DB->prepare ( "select u.username as 'User Name', sum(cl.score) + sum(ll.score)
+      as 'Score' from users u join cardio_log cl on (u.username = cl.username) join lifting_log ll
+      on (u.username = ll.username) group by u.username;" );
+    $stmt->execute ();
+    return $stmt->fetchAll ( PDO::FETCH_ASSOC );
+
   }
 
   public function logCardio($user, $workout, $sets){
