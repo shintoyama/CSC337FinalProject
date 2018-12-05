@@ -33,17 +33,30 @@ session_start();
 	var rankingTable = document.getElementById('rankingtable');
 	function getrankings() {
 		var ajax = new XMLHttpRequest();
-		ajax.open("GET", "controller.php?LBmain=", true);
+		ajax.open("GET", "controller.php?LBmain=set", true);
 		ajax.send();
 		ajax.onreadystatechange = function () {
 	    	if (ajax.readyState == 4 && ajax.status == 200) {
-	    		var rankings = JSON.parse(ajax.responseText); // get a json arrays of top 20 users' usernames and scores
-	    		for (var i = 0; i < rankings.length; i++) {
-	    			rankingTable.innerHTML += '<tr><td>' + rankings[i][0] + '</td><td>' + rankings[i][1] + '</td></tr>';
-	    		}
-	    	}
-		};
+				//	alert(ajax.responseText);
+
+				var arr = ajax.responseText;
+				//	var arr = JSON.parse(ajax.responseText);
+				//	alert(arr);
+				var str = "";
+
+			//	foreach (arr )
+
+				/*	var str = "";
+						for(i = 0; i < arr.length; i++) {
+						    /* String firstname = arr[i].first_name;
+						    String lastname = arr[i].last_name;
+						    var obj = arr[i];
+							str += obj."User Name" + " " + obj."Score" + "<br>";
+						}*/
+						rankingTable.innerHTML = arr;
+		}
 	}
+}
 </script>
 
 </body>
