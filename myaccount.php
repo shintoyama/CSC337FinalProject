@@ -19,18 +19,22 @@ session_start();
 			<th colspan="5" bgcolor="#ccc">Your Workout History</th>
 		</tr>
 		<tr>
-			<td>Date</td>
+			<td>Name</td>
 			<td>Duration</td>
-			<td>Hardness</td>
-			<td>Place</td>
-			<td></td>
+			<td>Equipment</td>
+			<td>Score</td>
 		</tr>
 		<tr>
-			<td>e.g. 11-20-2018</td>
-			<td>30 min</td>
-			<td>Very Hard</td>
-			<td>Home</td>
-			<td><input type="button" onclick="detailShow()" value="Detail" class="nbutton" /></td>
+			<td>e.g. Benchpress</td>
+			<td>10 reps x 5 sets</td>
+			<td>barbels</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>e.g. Run</td>
+			<td>60 min</td>
+			<td></td>
+			<td>30</td>
 		</tr>
 	</tbody>
 </table>

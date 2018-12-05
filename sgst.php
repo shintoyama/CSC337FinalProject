@@ -10,27 +10,71 @@ session_start();
 ?>
 </head>
 <body>
+
+<center>
+<b style="font-size: 1.2em;">Quick Workout</b>
+<hr>
+<br>
+</center>
 	
 <center>
-<div class="woGen">
-	<center style="font-size: 1.2em;">\ Quick Workouts /</center>
-	<hr>
-	<form onsubmit="menuGen();return false">
-		Duration? <input type="number" id="WOGtime" placeholder="time in min" step="5" min="5" max="180" required /> in min<br>
-		Place? <input type="type" id="WOGplace" placeholder="not required" /><br>
-		Hardness? <select id="WOGhard" required>
-					<option value="">(Select)</option>
-					<option value="VL">Very Light</option>
-					<option value="LL">Light</option>
-					<option value="MM">Moderate</option>
-					<option value="HH">Hard</option>
-					<option value="VH">Very Hard</option>
-				</select><br>
-		Rest between workouts? <input type="number" id="WOGrest" placeholder="rest in sec" step="5" min="5" max="180" required /> in sec<br><br>
-				<center><input style="font-size: 1.1em;" type="submit" value="Generate a menu" class="nbutton" /></center>
+<div class="quickWO">
+	<table cellspacing="0" width="100%"><tbody>
+	<tr>
+		<th>Workout</th>
+		<th>Duration/Reps</th>
+		<th>Scores</th>
+		<th>Sets</th>
+		<th></th>
+	</tr>
+	<tr>
+	<form onsubmit="quicklog1();return false">
+		<td>Run</td>
+		<td>20 min</td>
+		<td>10</td>
+		<td><input type="number" id="qWOset1" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
-<br>
+	</tr>
+	<tr>
+	<form onsubmit="quicklog2();return false">
+		<td>Benchpress</td>
+		<td>10 reps</td>
+		<td>3</td>
+		<td><input type="number" id="qWOset2" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="quicklog3();return false">
+		<td>Push Up</td>
+		<td>10 reps</td>
+		<td>3</td>
+		<td><input type="number" id="qWOset3" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="quicklog4();return false">
+		<td>shoulders</td>
+		<td>10 reps</td>
+		<td>2</td>
+		<td><input type="number" id="qWOset4" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="quicklog5();return false">
+		<td>Abs</td>
+		<td>10 reps</td>
+		<td>1</td>
+		<td><input type="number" id="qWOset5" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	</tbody></table>
 </div>
+<br>
 </center>
 
 

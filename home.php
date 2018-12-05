@@ -64,7 +64,8 @@ session_start();
 	<ul>
 		<li><a onclick="Changeiframe('sgst.php')">Home</a></li>
 		<li><a onclick="Changeiframe('leaderboard.php')">Leaderboard</a></li>
-		<li><a onclick="Changeiframe('logpage.php')">Log workout</a></li>
+		<li><a onclick="Changeiframe('logpage.php')">Log Cardio</a></li>
+		<li><a onclick="Changeiframe('logpage2.php')">Log Lifting</a></li>
 		<li><a onclick="Changeiframe('myaccount.php')">My Account</a></li>
 	</ul>
 </div>
