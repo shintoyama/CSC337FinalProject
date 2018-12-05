@@ -147,6 +147,7 @@ function showWOList() { //read database and show the list of saved workouts
 					var uname = signInUNInput.value; //get the input username
 					showUsername.innerHTML = uname;
 					showMeAfterLogin.style.display = "inline";
+			//		user = signInUNInput.value;
 	        	}
 	        	else {
 	        		signInUNInput.value = '';
