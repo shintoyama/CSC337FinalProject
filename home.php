@@ -50,7 +50,7 @@ session_start();
 			</div>
 			<div class="siuRight">
 				<input type="text" id="signupUNinput" required /><br>
-				<input type="text" id="signupPWinput" pattern="^(?=.{8,20}$)" required /><br>
+				<input type="text" id="signupPWinput" pattern="^.{8,20}$" required /><br>
 			</div>
 			<input type="submit" value="Sign Up" />
 		</form>
@@ -131,7 +131,7 @@ session_start();
 					//	showUsername.innerHTML = ajax.responseText;
 					//	showMeAfterLogin.style.display = "inline";
 
-		//				alert(ajax.responseText);
+				//		alert(ajax.responseText);
 						if (ajax.responseText == "Success") { //if the user is in database
 	        		signinform.style.display = "none";
 					var uname = signInUNInput.value; //get the input username
@@ -145,7 +145,7 @@ session_start();
 	        		alert('Please enter a valid username or password.');
 	        	}
 	        }
-	    };
+	    }
 	}
 	function signUp() { //save the username and password into database, and let him log in
 		var signUpUNInput = document.getElementById('signupUNinput');
@@ -158,13 +158,12 @@ session_start();
 					//		showUsername.innerHTML = ajax.responseText;
 					//		showMeAfterLogin.style.display = "inline";
 
+			//		alert(ajax.responseText);
 						if (ajax.responseText == "success") { //if the input username is unused
 	        		signupform.style.display = "none";
 					var uname = signUpUNInput.value; //get the input username
 					showUsername.innerHTML = uname;
 					showMeAfterLogin.style.display = "inline";
-					screen.style.display = "inline";
-					beforeSI.style.display = "none";
 	        	}
 	        	else { //if the input username is already used
 	        		signUpUNInput.value = '';
