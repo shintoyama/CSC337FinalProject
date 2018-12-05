@@ -34,8 +34,7 @@ session_start();
 			</div>
 			<div class="siuRight">
 				<input type="text" id="signinUNinput" required /><br>
-				<input type="text" id="signinPWinput" pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$
-			" required /><br>
+				<input type="text" id="signinPWinput" required /><br>
 			</div>
 			<input type="submit" value="Sign In" />
 		</form>
