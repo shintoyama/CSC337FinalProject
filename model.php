@@ -54,7 +54,7 @@ class DataBaseAdaptor {
     //    print_r($arr[0][1]);
         $hash = $arr[0][1];
         if (password_verify($pass, $hash)){
-          return "Welcome " . $user;
+          return "Success";
         }
         else {
           return "Invalid password";
