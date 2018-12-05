@@ -61,7 +61,7 @@ session_start();
 	</tr>
 	<tr>
 	<form onsubmit="quicklogweight(4);return false">
-		<td>shoulders</td>
+		<td>Shoulder Press</td>
 		<td>10 reps</td>
 		<td>2</td>
 		<td><input type="number" id="qWOset4" placeholder="sets" min="1" max="100" required /></td>
@@ -71,7 +71,7 @@ session_start();
 	</tr>
 	<tr>
 	<form onsubmit="quicklogweight(5);return false">
-		<td>Abs</td>
+		<td>Crunch</td>
 		<td>10 reps</td>
 		<td>1</td>
 		<td><input type="number" id="qWOset5" placeholder="sets" min="1" max="100" required /></td>
