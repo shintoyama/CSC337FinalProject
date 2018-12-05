@@ -13,6 +13,20 @@ if (isset($_GET['WOList'])) {
 if (isset($_GET['WOHistory'])) {
 
 }
+
+if (isset($_GET['quickWO'])) {
+	$workout = $_GET['quickWO'];
+	$sets = $_GET['sets'];
+// FIGURE OUT HOW TO PULL USER_ID
+	if ($workout == 1){
+		$theDBA->logCardio($user, $workout, $sets);
+	}
+// ADD WEIGHTS FOR LIFT
+	else {
+		$theDBA->logLift($user, $workout, $weight, $sets);
+	}
+}
+
 if (isset($_GET['signInUN']) && isset($_GET['signInPW'])) {
 	$user = $_GET['signInUN'];
 	$pass = $_GET['signInPW'];
