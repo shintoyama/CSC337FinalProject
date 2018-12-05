@@ -160,9 +160,6 @@ function showWOList() { //read database and show the list of saved workouts
 		ajax.send();
 		ajax.onreadystatechange = function () {
 	        if (ajax.readyState == 4 && ajax.status == 200) {
-							showUsername.innerHTML = ajax.responseText;
-
-					/*
 	        	if (ajax.responseText) { //if the input username is unused
 	        		signupform.style.display = "none";
 					var uname = signUpUNInput.value; //get the input username
@@ -172,7 +169,7 @@ function showWOList() { //read database and show the list of saved workouts
 	        	else { //if the input username is already used
 	        		signUpUNInput.value = '';
 	        		signUpPWInput.value = '';
-	        		alert('Please use another username');*/
+	        		alert('Please use another username');
 	        	}
 	        }
 	    };
