@@ -17,6 +17,7 @@ if (isset($_GET['signInUN']) && isset($_GET['signInPW'])) {
 	$user = $_GET['signInUN'];
 	$pass = $_GET['signInPW'];
   $arr = $theDBA->signIn ( $user, $pass );
+	echo($arr);
 
 }
 if (isset($_GET['signUpUN']) && isset($_GET['signUpPW'])) {
