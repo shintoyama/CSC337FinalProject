@@ -72,8 +72,7 @@ session_start();
 </div>
 
 <div class="mainContent">
-	<h3 id="beforesi">Please Sign in or Sing up</h3>
-	<iframe id="mainWrap" src="sgst.php" style="display: none;">
+	<iframe id="mainWrap" src="sgst.php">
 	</iframe>
 </div>
 
