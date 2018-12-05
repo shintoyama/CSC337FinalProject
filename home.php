@@ -50,7 +50,7 @@ session_start();
 			</div>
 			<div class="siuRight">
 				<input type="text" id="signupUNinput" required /><br>
-				<input type="text" id="signupPWinput" pattern="^(?=.{8,20}$)" required /><br>
+				<input type="text" id="signupPWinput" required /><br>
 			</div>
 			<input type="submit" value="Sign Up" />
 		</form>
@@ -166,13 +166,13 @@ session_start();
 					screen.style.display = "inline";
 					beforeSI.style.display = "none";
 	        	}
-	        	else { //if the input username is already used
+	        	if (ajax.responseText == "fail") { //if the input username is already used
 	        		signUpUNInput.value = '';
 	        		signUpPWInput.value = '';
 	        		alert('Please use another username');
 	        	}
 	        }
-	    }
+	    };
 	}
 
 </script>

@@ -52,6 +52,7 @@ if (isset($_GET['signInUN']) && isset($_GET['signInPW'])) {
 
 }
 if (isset($_GET['signUpUN']) && isset($_GET['signUpPW'])) {
+	alert();
 	$user = $_GET['signUpUN'];
 	$pass = $_GET['signUpPW'];
   $arr = $theDBA->checkUser ( $user );
