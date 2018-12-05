@@ -22,7 +22,7 @@ class DataBaseAdaptor {
 
     public function checkUser($user)
   {
-      $stmt = $this->DB->prepare ( "SELECT username, password FROM users where username regexp :userName;" );
+      $stmt = $this->DB->prepare ( "SELECT username, password FROM users where username like :userName;" );
       $stmt->bindParam ('userName', $user);
       $stmt->execute();
       return $stmt->fetchAll ( PDO::FETCH_ASSOC );
@@ -61,6 +61,10 @@ class DataBaseAdaptor {
         }
 
       }
+
+  }
+
+  public function getLB(){
 
   }
 

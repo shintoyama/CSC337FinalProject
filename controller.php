@@ -1,6 +1,6 @@
 <?php
 //CSC337 Final Project
-//Ben Lazarines
+//Ben Lazarine
 //Shin Toyama
 //12/05/2018
 
@@ -38,7 +38,10 @@ if (isset($_GET['quickWO'])) {
 
 }
 
-if (isset($_GET[''])) {
+if (isset($_GET['LBmain'])) {
+
+	$arr = $theDBA->getLB();
+	echo(json_encode($arr));
 
 }
 
@@ -55,7 +58,7 @@ if (isset($_GET['signUpUN']) && isset($_GET['signUpPW'])) {
 	alert();
 	$user = $_GET['signUpUN'];
 	$pass = $_GET['signUpPW'];
-  $arr = $theDBA->checkUser ( $user );
+  $arr = $theDBA->checkUser ( htmlspecialchars($user) );
 
 		if ($arr != null){
 			echo ("fail");
@@ -71,6 +74,8 @@ if (isset($_GET['signUpUN']) && isset($_GET['signUpPW'])) {
 
 
 }
+
+
 
 
 ?>
