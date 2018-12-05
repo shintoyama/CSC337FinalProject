@@ -16,7 +16,7 @@ session_start();
 <hr>
 <br>
 </center>
-	
+
 <center>
 <div class="quickWO">
 	<table cellspacing="0" width="100%"><tbody>
@@ -25,6 +25,7 @@ session_start();
 		<th>Duration/Reps</th>
 		<th>Scores</th>
 		<th>Sets</th>
+		<th>Weight</th>
 		<th></th>
 	</tr>
 	<tr>
@@ -32,7 +33,8 @@ session_start();
 		<td>Run</td>
 		<td>20 min</td>
 		<td>10</td>
-		<td><input type="number" id="qWOset1" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOset1" placeholder="sets" min="1" max="99" required /></td>
+		<td>NA</td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
@@ -41,7 +43,8 @@ session_start();
 		<td>Benchpress</td>
 		<td>10 reps</td>
 		<td>3</td>
-		<td><input type="number" id="qWOset2" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOset2" placeholder="sets" min="1" max="99" required /></td>
+		<td><input type="number" id="qWOweight2" placeholder="weight" min="1" max="9999" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
@@ -51,6 +54,7 @@ session_start();
 		<td>10 reps</td>
 		<td>3</td>
 		<td><input type="number" id="qWOset3" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOweight3" placeholder="weight" min="1" max="9999" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
@@ -60,6 +64,7 @@ session_start();
 		<td>10 reps</td>
 		<td>2</td>
 		<td><input type="number" id="qWOset4" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOweight4" placeholder="weight" min="1" max="9999" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
@@ -69,6 +74,7 @@ session_start();
 		<td>10 reps</td>
 		<td>1</td>
 		<td><input type="number" id="qWOset5" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOweight5" placeholder="weight" min="1" max="9999" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
@@ -78,7 +84,7 @@ session_start();
 </center>
 
 <script type="text/javascript">
-	function quicklog(n) {
+	function quicklog(n, type) {
 		var idnew = 'qWOset' + n;
 		var nofsets = document.getElementById(idnew);
 		var ajax = new XMLHttpRequest();
