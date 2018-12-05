@@ -40,6 +40,30 @@ class DataBaseAdaptor {
     return "Account successfully added";
 }
 
+  public function signIn($user, $pass){
+
+      $stmt = $this->DB->prepare ("SELECT username, password FROM users where username regexp :userName;");
+      $stmt->bindParam ('userName', $user);
+      $stmt->execute();
+      $arr = $stmt->fetchAll ( );
+
+      if ($arr == null){
+        return "This account does not exist";
+      }
+      else {
+    //    print_r($arr[0][1]);
+        $hash = $arr[0][1];
+        if (password_verify($pass, $hash)){
+          return "Welcome " . $user;
+        }
+        else {
+          return "Invalid password";
+        }
+
+      }
+
+  }
+
 }
 
 ?>
