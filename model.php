@@ -64,6 +64,23 @@ class DataBaseAdaptor {
 
   }
 
+  public function logCardio($user, $workout, $sets){
+    $stmt = $this->DB->prepare ( "INSERT into cardio_log (user_id, cardio_id, workout_count) VALUES (:user, :cardio, :count);" );
+    $stmt->bindParam ('user', $user);
+    $stmt->bindParam ('cardio', $workout);
+    $stmt->bindParam ('count', $sets);
+    $stmt->execute ();
+  }
+
+  public function logLift($user, $workout, $weight, $sets){
+    $stmt = $this->DB->prepare ( "INSERT into lifting_log (user_id, lifting_id, weight, sets) VALUES (:user, :lift, :weight, :count);" );
+    $stmt->bindParam ('user', $user);
+    $stmt->bindParam ('lift', $workout);
+    $stmt->bindParam ('weight', $weight);
+    $stmt->bindParam ('count', $sets);
+    $stmt->execute ();
+  }
+
 }
 
 ?>
