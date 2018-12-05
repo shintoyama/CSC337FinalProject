@@ -41,7 +41,21 @@ if (isset($_GET['quickWO'])) {
 if (isset($_GET['LBmain'])) {
 
 	$arr = $theDBA->getLB();
-	echo(json_encode($arr));
+
+//	$arr = json_encode($arr);
+
+	foreach ($arr as $value){
+		Echo "<tr>";
+		Echo "<td>";
+		Echo  $value['User Name'];
+		Echo "</td>";
+		Echo "<td>";
+		Echo  $value['Score'];
+		Echo "</td>";
+		Echo "</tr>";
+	}
+
+	//echo(json_encode($arr));
 
 }
 
