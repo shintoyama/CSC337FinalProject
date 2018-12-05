@@ -31,6 +31,7 @@ session_start();
 		<td>Run</td>
 		<td>20 min</td>
 		<td><input type="number" id="WOCsets1" placeholder="sets" min="1" max="100" required /></td>
+		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
 	<tr>

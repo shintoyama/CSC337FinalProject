@@ -94,35 +94,6 @@ session_start();
 	var signupform = document.getElementById('suform');
 	var showMeAfterLogin = document.getElementById('usernamedisplay');
 	var showUsername = document.getElementById('showusername');
-
-	function showWOList() { //read database and show the list of saved workouts
-			var ajax = new XMLHttpRequest();
-			ajax.open("GET", "controller.php?WOList=", true);
-			ajax.send();
-			ajax.onreadystatechange = function () {
-		        if (ajax.readyState == 4 && ajax.status == 200) {
-		        	var WOListArray = JSON.parse(ajax.responseText);
-		            //code to show the list
-		        }
-		    };
-		}
-		function showWOHistory() { //read database and show the history
-			var ajax = new XMLHttpRequest();
-			ajax.open("GET", "controller.php?WOHistory=", true);
-			ajax.send();
-			ajax.onreadystatechange = function () {
-		        if (ajax.readyState == 4 && ajax.status == 200) {
-		        	var WOHistoryArray = JSON.parse(ajax.responseText);
-		            //code to show the history
-		        }
-		    }
-		}
-
-		function showData() { //when the page is loaded
-			showWOList();
-			showWOHistory();
-		}
-
 	function siform() { //show sign-in form
 		signinform.style.display = "inline";
 		signinbutton.style.display = "none";
