@@ -30,7 +30,7 @@ session_start();
 </center>
 
 <script type="text/javascript">
-	var rankingTable = document.getElementbyId('rankingtable');
+	var rankingTable = document.getElementById('rankingtable');
 	function getrankings() {
 		var ajax = new XMLHttpRequest();
 		ajax.open("GET", "controller.php?LBmain=", true);
