@@ -16,7 +16,7 @@ session_start();
 <hr>
 <br>
 </center>
-	
+
 <center>
 <div class="quickWO">
 	<table cellspacing="0" width="100%"><tbody>
@@ -25,6 +25,7 @@ session_start();
 		<th>Duration/Reps</th>
 		<th>Scores</th>
 		<th>Sets</th>
+		<th>Weight</th>
 		<th></th>
 	</tr>
 	<tr>
@@ -32,43 +33,48 @@ session_start();
 		<td>Run</td>
 		<td>20 min</td>
 		<td>10</td>
-		<td><input type="number" id="qWOset1" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOset1" placeholder="sets" min="1" max="99" required /></td>
+		<td>NA</td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog(2);return false">
+	<form onsubmit="quicklogweight(2);return false">
 		<td>Benchpress</td>
 		<td>10 reps</td>
 		<td>3</td>
-		<td><input type="number" id="qWOset2" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOset2" placeholder="sets" min="1" max="99" required /></td>
+		<td><input type="number" id="qWOweight2" placeholder="weight" min="1" max="9999" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog(3);return false">
+	<form onsubmit="quicklogweight(3);return false">
 		<td>Push Up</td>
 		<td>10 reps</td>
 		<td>3</td>
 		<td><input type="number" id="qWOset3" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOweight3" placeholder="weight" min="1" max="9999" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog(4);return false">
+	<form onsubmit="quicklogweight(4);return false">
 		<td>shoulders</td>
 		<td>10 reps</td>
 		<td>2</td>
 		<td><input type="number" id="qWOset4" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOweight4" placeholder="weight" min="1" max="9999" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog(5);return false">
+	<form onsubmit="quicklogweight(5);return false">
 		<td>Abs</td>
 		<td>10 reps</td>
 		<td>1</td>
 		<td><input type="number" id="qWOset5" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOweight5" placeholder="weight" min="1" max="9999" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>
 	</tr>
@@ -84,7 +90,27 @@ session_start();
 		var ajax = new XMLHttpRequest();
 		ajax.open("GET", "controller.php?quickWO=" + n + "&sets=" + nofsets.value, true);
 		ajax.send();
-		alert('Workout Logged Successfully!');
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+							alert(ajax.responseText);
+	        }
+	    }
+
+		nofsets.value = '';
+	}
+	function quicklogweight(n) {
+		var idnew = 'qWOset' + n;
+		var idWeight = 'qWOweight' + n;
+		var nofsets = document.getElementById(idnew);
+		var weight = document.getElementById(idWeight);
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?quickWO=" + n + "&sets=" + nofsets.value + "&weight=" + weight.value, true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+							alert(ajax.responseText);
+	        }
+	    }
 		nofsets.value = '';
 	}
 </script>

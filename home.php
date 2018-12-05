@@ -72,7 +72,8 @@ session_start();
 </div>
 
 <div class="mainContent">
-	<iframe id="mainWrap"src="sgst.php">
+	<h3 id="beforesi">Please Sign in or Sing up</h3>
+	<iframe id="mainWrap" src="sgst.php" style="display: none;">
 	</iframe>
 </div>
 
@@ -82,38 +83,12 @@ session_start();
 </div>
 
 <script type="text/javascript">
-function Changeiframe(url) {
-	var element = document.getElementById('mainWrap');
-	element.src = url;
-}
-function showWOList() { //read database and show the list of saved workouts
-		var ajax = new XMLHttpRequest();
-		ajax.open("GET", "controller.php?WOList=", true);
-		ajax.send();
-		ajax.onreadystatechange = function () {
-	        if (ajax.readyState == 4 && ajax.status == 200) {
-	        	var WOListArray = JSON.parse(ajax.responseText);
-	            //code to show the list
-	        }
-	    };
+	function Changeiframe(url) {
+		var element = document.getElementById('mainWrap');
+		element.src = url;
 	}
-	function showWOHistory() { //read database and show the history
-		var ajax = new XMLHttpRequest();
-		ajax.open("GET", "controller.php?WOHistory=", true);
-		ajax.send();
-		ajax.onreadystatechange = function () {
-	        if (ajax.readyState == 4 && ajax.status == 200) {
-	        	var WOHistoryArray = JSON.parse(ajax.responseText);
-	            //code to show the history
-	        }
-	    };
-	}
-
-	function showData() { //when the page is loaded
-		showWOList();
-		showWOHistory();
-	}
-
+	var screen = document.getElementById('mainWrap');
+	var beforeSI = document.getElementById('beforesi');
 	var signinbutton = document.getElementById('sibut');
 	var signupbutton = document.getElementById('subut');
 	var signinform = document.getElementById('siform');
@@ -143,6 +118,8 @@ function showWOList() { //read database and show the list of saved workouts
 					var uname = signInUNInput.value; //get the input username
 					showUsername.innerHTML = uname;
 					showMeAfterLogin.style.display = "inline";
+					screen.style.display = "inline";
+					beforeSI.style.display = "none";
 	        	}
 	        	else {
 	        		signInUNInput.value = '';
@@ -165,6 +142,8 @@ function showWOList() { //read database and show the list of saved workouts
 					var uname = signUpUNInput.value; //get the input username
 					showUsername.innerHTML = uname;
 					showMeAfterLogin.style.display = "inline";
+					screen.style.display = "inline";
+					beforeSI.style.display = "none";
 	        	}
 	        	else { //if the input username is already used
 	        		signUpUNInput.value = '';
