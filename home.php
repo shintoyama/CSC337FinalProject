@@ -50,7 +50,13 @@ session_start();
 			</div>
 			<div class="siuRight">
 				<input type="text" id="signupUNinput" required /><br>
+<<<<<<< HEAD
+				<input type="text" id="signupPWinput" required /><br>
+||||||| merged common ancestors
+				<input type="text" id="signupPWinput" pattern="^(?=.{8,20}$)" required /><br>
+=======
 				<input type="text" id="signupPWinput" pattern="^.{8,20}$" required /><br>
+>>>>>>> 459c74867e7b0aef7ea7cbda2938a90b19191633
 			</div>
 			<input type="submit" value="Sign Up" />
 		</form>
@@ -165,13 +171,13 @@ session_start();
 					showUsername.innerHTML = uname;
 					showMeAfterLogin.style.display = "inline";
 	        	}
-	        	else { //if the input username is already used
+	        	if (ajax.responseText == "fail") { //if the input username is already used
 	        		signUpUNInput.value = '';
 	        		signUpPWInput.value = '';
 	        		alert('Please use another username');
 	        	}
 	        }
-	    }
+	    };
 	}
 
 </script>

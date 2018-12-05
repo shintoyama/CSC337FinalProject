@@ -48,13 +48,14 @@ if (isset($_GET['LBmain'])) {
 if (isset($_GET['signInUN']) && isset($_GET['signInPW'])) {
 	$user = $_GET['signInUN'];
 	$pass = $_GET['signInPW'];
-  $arr = $theDBA->signIn ( $user, $pass );
+  $arr = $theDBA->signIn ( htmlspecialchars($user), htmlspecialchars($pass) );
 	setcookie("username", $user);
 //	$currentUser = $user;
 	echo($arr);
 
 }
 if (isset($_GET['signUpUN']) && isset($_GET['signUpPW'])) {
+	alert();
 	$user = $_GET['signUpUN'];
 	$pass = $_GET['signUpPW'];
   $arr = $theDBA->checkUser ( htmlspecialchars($user) );
@@ -64,7 +65,7 @@ if (isset($_GET['signUpUN']) && isset($_GET['signUpPW'])) {
 		}
 
 	else{
-		$arr = $theDBA->submitUser ( $user, $pass );
+		$arr = $theDBA->submitUser ( htmlspecialchars($user), htmlspecialchars($pass) );
 		setcookie("username", $user);
 		echo("success");
 	}
