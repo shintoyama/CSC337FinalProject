@@ -9,7 +9,7 @@
 session_start();
 ?>
 </head>
-<body>
+<body onload="getrankings()">
 
 <center>
 <b style="font-size: 1.2em;">Leaderboard</b>
@@ -24,13 +24,27 @@ session_start();
 		<th>User</th>
 		<th>Score</th>
 	</tr>
-	<tr>
-		<td>e.g. Shin</td>
-		<td>9999999</td>
-	</tr>
+	<div id="rankingtable"></div>
 </tbody></table>
 </div>
 </center>
+
+<script type="text/javascript">
+	var rankingTable = document.getElementbyId('rankingtable');
+	function getrankings() {
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?LBmain=", true);
+		ajax.send();
+		ajax.onreadystatechange = function () {
+	    	if (ajax.readyState == 4 && ajax.status == 200) {
+	    		var rankings = JSON.parse(ajax.responseText); // get a json arrays of top 20 users' usernames and scores
+	    		for (var i = 0; i < rankings.length; i++) {
+	    			rankingTable.innerHTML += '<tr><td>' + rankings[i][0] + '</td><td>' + rankings[i][1] + '</td></tr>';
+	    		}
+	    	}
+		};
+	}
+</script>
 
 </body>
 </html>

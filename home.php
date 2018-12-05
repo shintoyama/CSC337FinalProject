@@ -22,6 +22,7 @@ session_start();
 <div class="header">
 	<a onclick="Changeiframe('leaderboard.php')">
 	<h1> <span style="color: #FF4460;"><i class="fas fa-dumbbell"></i></span> Workout Scheduler and Tracker</h1>
+	</a>
 	<div id="sibut" onclick="siform()">
 		Sign In
 	</div>
@@ -55,7 +56,7 @@ session_start();
 		</form>
 	</div>
 	<div id="usernamedisplay" style="display: none">Hello, <span id="showusername" style="color: #FF4460;"></span></div>
-</a>
+
 </div>
 
 

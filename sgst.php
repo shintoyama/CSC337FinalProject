@@ -28,7 +28,7 @@ session_start();
 		<th></th>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog1();return false">
+	<form onsubmit="quicklog(1);return false">
 		<td>Run</td>
 		<td>20 min</td>
 		<td>10</td>
@@ -37,7 +37,7 @@ session_start();
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog2();return false">
+	<form onsubmit="quicklog(2);return false">
 		<td>Benchpress</td>
 		<td>10 reps</td>
 		<td>3</td>
@@ -46,7 +46,7 @@ session_start();
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog3();return false">
+	<form onsubmit="quicklog(3);return false">
 		<td>Push Up</td>
 		<td>10 reps</td>
 		<td>3</td>
@@ -55,7 +55,7 @@ session_start();
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog4();return false">
+	<form onsubmit="quicklog(4);return false">
 		<td>shoulders</td>
 		<td>10 reps</td>
 		<td>2</td>
@@ -64,7 +64,7 @@ session_start();
 	</form>
 	</tr>
 	<tr>
-	<form onsubmit="quicklog5();return false">
+	<form onsubmit="quicklog(5);return false">
 		<td>Abs</td>
 		<td>10 reps</td>
 		<td>1</td>
@@ -77,6 +77,17 @@ session_start();
 <br>
 </center>
 
+<script type="text/javascript">
+	function quicklog(n) {
+		var idnew = 'qWOset' + n;
+		var nofsets = document.getElementById(idnew);
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?quickWO=" + n + "&sets=" + nofsets.value, true);
+		ajax.send();
+		alert('Workout Logged Successfully!');
+		nofsets.value = '';
+	}
+</script>
 
 </body>
 </html>

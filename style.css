@@ -145,7 +145,7 @@ input {
 	margin-bottom: 0;
 }
 .sidemenu ul li {
-	line-height: 1.5;
+	line-height: 1.8;
 	list-style: none;
 }
 .sidemenu ul li::before {
@@ -221,6 +221,7 @@ input {
 	margin: 0;
 	padding: 5px 3px;
 }
+
 .fa-trash-alt {
 	transition: 0.3s;
 }

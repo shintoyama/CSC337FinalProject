@@ -23,16 +23,14 @@ session_start();
 	<tr>
 		<th width="35%">Name</th>
 		<th width="20%">Duration (min)</th>
-		<th width="20%">Equipment</th>
-		<th width="15%">Sets</th>
-		<th width="10%">Delete</th>
+		<th width="25%">Equipment</th>
+		<th width="20%">Sets</th>
 	</tr>
 	<tr>
 		<td>e.g. run</td>
 		<td>30</td>
-		<td></td>
+		<td>3kg weight</td>
 		<td>2</td>
-		<td><i class="fas fa-trash-alt" onclick="deletewo()"></i></td>
 	</tr>
 </tbody></table>
 <br>
@@ -41,15 +39,32 @@ session_start();
 		<tr>
 			<td width="35%"><input type="text" id="WOCname" placeholder="workout name" required /></td>
 			<td width="20%"><input type="number" id="WOCtime" placeholder="time in min" step="15" min="5" max="360" required /></td>
-			<td width="20%"><input type="text" id="WOCequip" placeholder="equipment"/></td>
-			<td width="15%"><input type="number" id="WOCsets" placeholder="sets" size="10%" min="1" max="100" required /></td>
-			<td width="10%"><input type="submit" class="nbutton" value="Log"/></td>
+			<td width="25%"><input type="text" id="WOCequip" placeholder="equipment"/></td>
+			<td width="12%"><input type="number" id="WOCsets" placeholder="sets" size="10%" min="1" max="100" required /></td>
+			<td width="8%"><input type="submit" class="nbutton" value="Log"/></td>
 		</tr>
 	</tbody></table>
 </form>
 </div>
 </center>
 <br><br>
+
+<script type="text/javascript">
+	function addWorkout() {
+		var workoutName = document.getElementById('WOCname');
+		var workoutTime = document.getElementById('WOCtime');
+		var workoutEquip = document.getElementById('WOCequip');
+		var workoutSets = document.getElementById('WOCsets');
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", "controller.php?WOCname=" + workoutName.value + "&WOCtime=" + workoutTime.value + "&WOCequip=" + workoutEquip.value + "&WOCsets=" + workoutSets.value, true);
+		ajax.send();
+		alert('Workout Logged Successfully!');
+		workoutName.value = '';
+		workoutTime.value = '';
+		workoutEquip.value = '';
+		workoutSets.value = '';
+	}
+</script>
 
 </body>
 </html>
