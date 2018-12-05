@@ -106,7 +106,7 @@ function showWOList() { //read database and show the list of saved workouts
 	        	var WOHistoryArray = JSON.parse(ajax.responseText);
 	            //code to show the history
 	        }
-	    };
+	    }
 	}
 
 	function showData() { //when the page is loaded
@@ -138,11 +138,11 @@ function showWOList() { //read database and show the list of saved workouts
 		ajax.send();
 		ajax.onreadystatechange = function () {
 	        if (ajax.readyState == 4 && ajax.status == 200) {
-						showUsername.innerHTML = ajax.responseText;
-						showMeAfterLogin.style.display = "inline";
+					//	showUsername.innerHTML = ajax.responseText;
+					//	showMeAfterLogin.style.display = "inline";
 
-
-					/*	if (ajax.responseText) { //if the user is in database
+		//				alert(ajax.responseText);
+						if (ajax.responseText == "Success") { //if the user is in database
 	        		signinform.style.display = "none";
 					var uname = signInUNInput.value; //get the input username
 					showUsername.innerHTML = uname;
@@ -152,7 +152,7 @@ function showWOList() { //read database and show the list of saved workouts
 	        		signInUNInput.value = '';
 	        		signInPWInput.value = '';
 	        		alert('Please enter a valid username or password.');
-	        	}*/
+	        	}
 	        }
 	    };
 	}
@@ -164,10 +164,10 @@ function showWOList() { //read database and show the list of saved workouts
 		ajax.send();
 		ajax.onreadystatechange = function () {
 	        if (ajax.readyState == 4 && ajax.status == 200) {
-							showUsername.innerHTML = ajax.responseText;
-							showMeAfterLogin.style.display = "inline";
+					//		showUsername.innerHTML = ajax.responseText;
+					//		showMeAfterLogin.style.display = "inline";
 
-					/*	if (ajax.responseText != null) { //if the input username is unused
+						if (ajax.responseText == "success") { //if the input username is unused
 	        		signupform.style.display = "none";
 					var uname = signUpUNInput.value; //get the input username
 					showUsername.innerHTML = uname;
@@ -177,9 +177,9 @@ function showWOList() { //read database and show the list of saved workouts
 	        		signUpUNInput.value = '';
 	        		signUpPWInput.value = '';
 	        		alert('Please use another username');
-	        	}*/
+	        	}
 	        }
-	    };
+	    }
 	}
 
 </script>
