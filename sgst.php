@@ -73,7 +73,8 @@ session_start();
 		<td>Abs</td>
 		<td>10 reps</td>
 		<td>1</td>
-		<td><input type="number" id="qWOset5" placeholder="sets" min="1" max="" required /></td>
+		<td><input type="number" id="qWOset5" placeholder="sets" m
+			in="1" max="" required /></td>
 		<td><input type="number" id="qWOweight5" placeholder="weight" min="1" max="9999" required /></td>
 		<td><input type="submit" class="nbutton" value="Log"/></td>
 	</form>

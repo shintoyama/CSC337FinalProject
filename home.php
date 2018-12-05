@@ -33,8 +33,10 @@ session_start();
 				Password: <br>
 			</div>
 			<div class="siuRight">
-				<input type="text" id="signinUNinput" required /><br>
-				<input type="text" id="signinPWinput" required /><br>
+				<input type="text" id="signinUNinput" pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$
+			" required /><br>
+				<input type="text" id="signinPWinput" pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$
+			" required /><br>
 			</div>
 			<input type="submit" value="Sign In" />
 		</form>
@@ -82,10 +84,10 @@ session_start();
 </div>
 
 <script type="text/javascript">
-<<<<<<< HEAD
 	function Changeiframe(url) {
 		var element = document.getElementById('mainWrap');
 		element.src = url;
+	}
 	var signinbutton = document.getElementById('sibut');
 	var signupbutton = document.getElementById('subut');
 	var signinform = document.getElementById('siform');

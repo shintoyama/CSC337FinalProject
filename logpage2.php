@@ -22,51 +22,84 @@ session_start();
 <table cellspacing="0" width="100%"><tbody>
 	<tr>
 		<th width="20%">Name</th>
-		<th width="20%">Muscle Group</th>
 		<th width="15%">Reps</th>
-		<th width="25%">Equipment</th>
-		<th width="20%">Sets</th>
+		<th width="10%">Weights</th>
+		<th width="10%">Sets</th>
+		<th width="10%">Log</th>
 	</tr>
 	<tr>
-		<td>e.g. Benchpress</td>
-		<td>chest</td>
+	<form onsubmit="addWorkoutL(1)">
+		<td>Benchpress</td>
 		<td>10</td>
-		<td>barbels</td>
-		<td>5</td>
+		<td><input type="number" id="WOLweight1" placeholder="weights" min="0" max="50" /></td>
+		<td><input type="number" id="WOLsets1" placeholder="sets" size="10%" min="1" max="100" required /></td>
+		<td width="10%"><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="addWorkoutL(2)">
+		<td>Push Up</td>
+		<td>10</td>
+		<td><input type="number" id="WOLweight2" placeholder="weights" min="0" max="50" /></td>
+		<td><input type="number" id="WOLsets2" placeholder="sets" size="10%" min="1" max="100" required /></td>
+		<td width="10%"><input type="submit" class="nbutton" value="Log"/></td>
+	</tr>
+	<tr>
+	<form onsubmit="addWorkoutL(3)">
+		<td>Shoulder Press</td>
+		<td>10</td>
+		<td><input type="number" id="WOLweight3" placeholder="weights" min="0" max="50" /></td>
+		<td><input type="number" id="WOLsets3" placeholder="sets" size="10%" min="1" max="100" required /></td>
+		<td width="10%"><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="addWorkoutL(4)">
+		<td>Curls</td>
+		<td>10</td>
+		<td><input type="number" id="WOLweight4" placeholder="weights" min="0" max="50" /></td>
+		<td><input type="number" id="WOLsets4" placeholder="sets" size="10%" min="1" max="100" required /></td>
+		<td width="10%"><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="addWorkoutL(5)">
+		<td>Pull Up</td>
+		<td>10</td>
+		<td><input type="number" id="WOLweight5" placeholder="weights" min="0" max="50" /></td>
+		<td><input type="number" id="WOLsets5" placeholder="sets" size="10%" min="1" max="100" required /></td>
+		<td width="10%"><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
+	</tr>
+	<tr>
+	<form onsubmit="addWorkoutL(6)">
+		<td>Crunch</td>
+		<td>10</td>
+		<td><input type="number" id="WOLweight6" placeholder="weights" min="0" max="50" /></td>
+		<td><input type="number" id="WOLsets6" placeholder="sets" size="10%" min="1" max="100" required /></td>
+		<td width="10%"><input type="submit" class="nbutton" value="Log"/></td>
+	</form>
 	</tr>
 </tbody></table>
 <br>
-<form onsubmit="addWorkout();return false">
-	<table cellspacing="0" width="100%"><tbody>
-		<tr>
-			<td width="20%"><input type="text" id="WOLname" placeholder="workout name" required /></td>
-			<td width="20%"><input type="text" id="WOLmus" placeholder="muscle" /></td>
-			<td width="15%"><input type="number" id="WOLrep" placeholder="reps" step="15" min="1" max="100" required /></td>
-			<td width="25%"><input type="text" id="WOLequip" placeholder="equipment"/></td>
-			<td width="10%"><input type="number" id="WOLsets" placeholder="sets" size="10%" min="1" max="100" required /></td>
-			<td width="10%"><input type="submit" class="nbutton" value="Log"/></td>
-		</tr>
-	</tbody></table>
-</form>
 </div>
 </center>
 
 <script type="text/javascript">
-	function addWorkout() {
-		var workoutName = document.getElementById('WOLname');
-		var workoutMus = document.getElementById('WOLmus');
-		var workoutRep = document.getElementById('WOLrep');
-		var workoutEquip = document.getElementById('WOLequip');
-		var workoutSets = document.getElementById('WOLsets');
-		var ajax = new XMLHttpRequest();
-		ajax.open("GET", "controller.php?WOLname=" + workoutName.value + "&WOLmus=" + workoutMus.value + "&WOLrep=" + workoutRep.value + "&WOLequip=" + workoutEquip.value + "&WOLsets=" + workoutSets.value, true);
+	function addWorkout(n) {
+		var idSets = 'WOLsets' + n;
+		var idWeight = 'WOLweight' + n;
+		var nofsets = document.getElementById(idSets);
+		var weight = document.getElementById(idWeight);
+		ajax.open("GET", "controller.php?quickWO=" + n + "&sets=" + nofsets.value + "&weight=" + weight.value, true);
 		ajax.send();
-		alert('Workout Logged Successfully!');
-		workoutName.value = '';
-		workoutMus.value = '';
-		workoutRep.value = '';
-		workoutEquip.value = '';
-		workoutSets.value = '';
+		ajax.onreadystatechange = function () {
+	        if (ajax.readyState == 4 && ajax.status == 200) {
+							alert(ajax.responseText);
+	        }
+	    }
+
+		nofsets.value = '';
 	}
 </script>
 

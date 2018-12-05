@@ -24,13 +24,15 @@ session_start();
 		<th width="35%">Name</th>
 		<th width="20%">Duration (min)</th>
 		<th width="25%">Equipment</th>
-		<th width="20%">Sets</th>
+		<th width="12%">Sets</th>
+		<th width="8%">Log</th>
 	</tr>
 	<tr>
-		<td>e.g. run</td>
+		<td>Run</td>
 		<td>30</td>
-		<td>3kg weight</td>
+		<td><input type="text" id="WOCequip" placeholder="equipment"/></td>
 		<td>2</td>
+		<td ><input type="submit" class="nbutton" value="Log"/></td>
 	</tr>
 </tbody></table>
 <br>
