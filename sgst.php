@@ -115,6 +115,7 @@ session_start();
 	        }
 	    }
 		nofsets.value = '';
+		weight.value = '';
 	}
 </script>
 
