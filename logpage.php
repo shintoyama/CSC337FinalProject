@@ -16,7 +16,7 @@ session_start();
 <hr>
 <br>
 </center>
-	
+
 <center>
 <div class="LogWOC">
 <table cellspacing="0" width="100%"><tbody>
@@ -65,32 +65,20 @@ session_start();
 <br><br>
 
 <script type="text/javascript">
-	function addWorkout() {
-		var workoutName = document.getElementById('WOCname');
-		var workoutTime = document.getElementById('WOCtime');
-		var workoutEquip = document.getElementById('WOCequip');
-		var workoutSets = document.getElementById('WOCsets');
-		var ajax = new XMLHttpRequest();
-		ajax.open("GET", "controller.php?WOCname=" + workoutName.value + "&WOCtime=" + workoutTime.value + "&WOCequip=" + workoutEquip.value + "&WOCsets=" + workoutSets.value, true);
-		ajax.send();
-		alert('Workout Logged Successfully!');
-		workoutName.value = '';
-		workoutTime.value = '';
-		workoutEquip.value = '';
-		workoutSets.value = '';
-	}
-	function addWorkoutC(n) {
-		var idSets = 'WOCsets' + n;
-		var nofsets = document.getElementById(idSets);
-		ajax.open("GET", "controller.php?WOClog=" + n + "&sets=" + nofsets.value, true);
-		ajax.send();
-		ajax.onreadystatechange = function () {
-	        if (ajax.readyState == 4 && ajax.status == 200) {
-							alert(ajax.responseText);
-	        }
-	    }
-		nofsets.value = '';
-	}
+function addWorkoutC(n) {
+	var idnew = 'WOCsets' + n;
+	var nofsets = document.getElementById(idnew);
+	var ajax = new XMLHttpRequest();
+	ajax.open("GET", "controller.php?quickWO=" + n + "&sets=" + nofsets.value, true);
+	ajax.send();
+	ajax.onreadystatechange = function () {
+				if (ajax.readyState == 4 && ajax.status == 200) {
+						alert(ajax.responseText);
+				}
+		}
+
+	nofsets.value = '';
+}
 </script>
 
 </body>
