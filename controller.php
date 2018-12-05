@@ -32,6 +32,7 @@ if (isset($_GET['quickWO'])) {
 		else {
 			$weight = $_GET['weight'];
 			$theDBA->logLift($user, $workout, $weight, $sets);
+			echo "success";
 		}
 	}
 
@@ -57,6 +58,7 @@ if (isset($_GET['signUpUN']) && isset($_GET['signUpPW'])) {
 
 	else{
 		$arr = $theDBA->submitUser ( $user, $pass );
+		setcookie("username", $user);
 		echo("success");
 	}
 
