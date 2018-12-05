@@ -65,9 +65,10 @@ class DataBaseAdaptor {
   }
 
   public function logCardio($user, $workout, $sets){
+    if ($workout == 1) $workout = "Run";
     $stmt = $this->DB->prepare ( "INSERT into cardio_log (username, cardio_name, workout_count) VALUES (:user, :cardio, :count);" );
     $stmt->bindParam ('user', $user);
-    $stmt->bindParam ('cardio', "run");
+    $stmt->bindParam ('cardio', $workout);
     $stmt->bindParam ('count', $sets);
     $stmt->execute ();
   }
